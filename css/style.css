@@ -601,47 +601,6 @@ tr:hover {
     margin: -0.5rem 0;
 }
 
-/* Comprehensive Status Items */
-.status-overview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
-.status-item.comprehensive {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.2rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.status-item.comprehensive:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.status-icon {
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 0.8rem;
-    border-radius: 10px;
-    color: white;
-}
-
-.status-info h4 {
-    margin: 0 0 0.3rem 0;
-    color: #2c3e50;
-}
-
-.status-info p {
-    margin: 0 0 0.5rem 0;
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
 /* Pages Grid */
 .pages-grid {
     display: grid;
@@ -842,4 +801,151 @@ tr:hover {
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     word-break: break-all;
+}
+
+/* ===== SYSTEM STATUS OVERVIEW - FIXED BADGE ===== */
+.status-overview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.status-item.comprehensive {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* HAPUS height: 140px - biarkan konten menentukan tinggi */
+    min-height: 120px; /* hanya minimum height */
+}
+
+.status-item.comprehensive:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.status-item.comprehensive .status-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    min-width: 60px;
+    text-align: center;
+    flex-shrink: 0; /* pastikan icon tidak mengecil */
+}
+
+.status-item.comprehensive .status-info {
+    flex: 1;
+    min-width: 0; /* penting untuk mencegah overflow */
+}
+
+.status-item.comprehensive .status-info h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.status-item.comprehensive .status-info p {
+    margin: 0 0 12px 0;
+    color: #5a6c7d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.status-badge.online {
+    background: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: auto; /* ini yang penting - dorong badge ke bawah */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .status-overview {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .status-item.comprehensive {
+        min-height: 110px;
+        padding: 16px;
+    }
+}
+
+/* ===== PERBAIKAN REAL-TIME SYSTEM STATUS ===== */
+.system-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.metric-label {
+    font-weight: 500;
+    color: #5a6c7d;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.metric-value {
+    font-weight: 600;
+    color: #2c3e50;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    border: 1px solid #e1e8ed;
+}
+
+/* Untuk card real-time system status agar full width */
+.content-row:last-child .card {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .system-metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .system-metrics {
+        grid-template-columns: 1fr;
+    }
+    
+    .metric-item {
+        padding: 12px 8px;
+    }
 }
