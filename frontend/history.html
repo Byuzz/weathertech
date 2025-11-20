@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTech - Historical Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>🌤️ WeatherTech</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Dashboard</a>
+            <a href="sensors.html" class="nav-link">📊 Sensors</a>
+            <a href="gps.html" class="nav-link">🗺️ GPS</a>
+            <a href="transceiver.html" class="nav-link">⚡ Transceiver</a>
+            <a href="gateway.html" class="nav-link">🖥️ Gateway</a>
+            <a href="history.html" class="nav-link active">📈 History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Historical Data & Analytics</h1>
+            <div class="time-range-selector">
+                <select id="time-range">
+                    <option value="1h">1 Jam Terakhir</option>
+                    <option value="6h">6 Jam Terakhir</option>
+                    <option value="24h" selected>24 Jam Terakhir</option>
+                    <option value="7d">7 Hari Terakhir</option>
+                    <option value="30d">30 Hari Terakhir</option>
+                </select>
+                <button id="export-data" class="btn-primary">📥 Export Data</button>
+            </div>
+        </header>
+
+        <!-- Statistics Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-title">Data Points</div>
+                <div class="stat-value" id="total-data-points">1,245</div>
+                <div class="stat-trend positive">+12%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Avg Temperature</div>
+                <div class="stat-value" id="avg-temp">28.5°C</div>
+                <div class="stat-trend neutral">±0°C</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Avg Humidity</div>
+                <div class="stat-value" id="avg-hum">65.2%</div>
+                <div class="stat-trend positive">-2%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">System Uptime</div>
+                <div class="stat-value" id="system-uptime">99.8%</div>
+                <div class="stat-trend positive">+0.1%</div>
+            </div>
+        </div>
+
+        <!-- Main Charts -->
+        <div class="content-row">
+            <div class="card large">
+                <h3>📈 Sensor Trends</h3>
+                <div class="chart-container">
+                    <canvas id="sensor-trends-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="card">
+                <h3>🌡️ Temperature Analysis</h3>
+                <div class="chart-container">
+                    <canvas id="temperature-chart"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="chart-stat">
+                        <span>Min: <span id="temp-min">26.2°C</span></span>
+                        <span>Max: <span id="temp-max">31.8°C</span></span>
+                        <span>Avg: <span id="temp-avg">28.5°C</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>💧 Humidity Analysis</h3>
+                <div class="chart-container">
+                    <canvas id="humidity-chart"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="chart-stat">
+                        <span>Min: <span id="hum-min">58%</span></span>
+                        <span>Max: <span id="hum-max">72%</span></span>
+                        <span>Avg: <span id="hum-avg">65.2%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="card">
+            <h3>📋 Historical Data Table</h3>
+            <div class="table-controls">
+                <input type="text" id="search-data" placeholder="Cari data...">
+                <select id="rows-per-page">
+                    <option value="10">10 rows</option>
+                    <option value="25" selected>25 rows</option>
+                    <option value="50">50 rows</option>
+                    <option value="100">100 rows</option>
+                </select>
+            </div>
+            <div class="table-container">
+                <table id="history-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Pressure</th>
+                            <th>Light</th>
+                            <th>Air Quality</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table-body">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-pagination">
+                <button id="prev-page" disabled>← Previous</button>
+                <span id="page-info">Page 1 of 5</span>
+                <button id="next-page">Next →</button>
+            </div>
+        </div>
+
+        <!-- Correlation Analysis -->
+        <div class="card">
+            <h3>🔍 Correlation Analysis</h3>
+            <div class="correlation-grid">
+                <div class="correlation-item">
+                    <h4>Temperature vs Humidity</h4>
+                    <div class="correlation-value negative">-0.65</div>
+                    <div class="correlation-chart">
+                        <canvas id="temp-hum-correlation"></canvas>
+                    </div>
+                </div>
+                <div class="correlation-item">
+                    <h4>Light vs Temperature</h4>
+                    <div class="correlation-value positive">+0.42</div>
+                    <div class="correlation-chart">
+                        <canvas id="light-temp-correlation"></canvas>
+                    </div>
+                </div>
+                <div class="correlation-item">
+                    <h4>Pressure vs Air Quality</h4>
+                    <div class="correlation-value neutral">+0.18</div>
+                    <div class="correlation-chart">
+                        <canvas id="pres-air-correlation"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/history.js"></script>
+</body>
+</html>

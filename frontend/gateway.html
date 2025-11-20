@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTech - Gateway System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>🌤️ WeatherTech</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Dashboard</a>
+            <a href="sensors.html" class="nav-link">📊 Sensors</a>
+            <a href="gps.html" class="nav-link">🗺️ GPS</a>
+            <a href="transceiver.html" class="nav-link">⚡ Transceiver</a>
+            <a href="gateway.html" class="nav-link active">🖥️ Gateway</a>
+            <a href="history.html" class="nav-link">📈 History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Gateway System Monitoring</h1>
+            <div class="last-update" id="last-update">Loading...</div>
+        </header>
+
+        <!-- Gateway Overview -->
+        <div class="gateway-overview">
+            <div class="gateway-card main">
+                <div class="gateway-header">
+                    <h3>🖥️ WeatherTech Gateway</h3>
+                    <div class="gateway-status online">Online</div>
+                </div>
+                <div class="gateway-metrics">
+                    <div class="gateway-metric">
+                        <span class="metric-label">Uptime</span>
+                        <span class="metric-value" id="gateway-uptime">48 jam 0 menit</span>
+                    </div>
+                    <div class="gateway-metric">
+                        <span class="metric-label">CPU Usage</span>
+                        <span class="metric-value" id="gateway-cpu">65%</span>
+                    </div>
+                    <div class="gateway-metric">
+                        <span class="metric-label">Memory Usage</span>
+                        <span class="metric-value" id="gateway-memory">150 KB</span>
+                    </div>
+                    <div class="gateway-metric">
+                        <span class="metric-label">MQTT Status</span>
+                        <span class="metric-value online">Connected</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gateway-card">
+                <div class="gateway-header">
+                    <h3>☁️ MQTT Broker</h3>
+                    <div class="gateway-status online">Active</div>
+                </div>
+                <div class="gateway-info">
+                    <div class="info-item">
+                        <span>Host:</span>
+                        <span>ef0b64d1857f49109acb946f7e9732d8.s1.eu.hivemq.cloud</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Port:</span>
+                        <span>8883 (TLS)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Topics:</span>
+                        <span>3 aktif</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Last Message:</span>
+                        <span id="mqtt-last-msg">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gateway-card">
+                <div class="gateway-header">
+                    <h3>📡 LoRa Gateway</h3>
+                    <div class="gateway-status online">Listening</div>
+                </div>
+                <div class="gateway-info">
+                    <div class="info-item">
+                        <span>Frequency:</span>
+                        <span>433 MHz</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Packets Received:</span>
+                        <span id="lora-packets">1,245</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Last Packet:</span>
+                        <span id="lora-last-packet">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Signal Quality:</span>
+                        <span class="quality-good">Good</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Charts -->
+        <div class="content-row">
+            <div class="card">
+                <h3>📊 CPU & Memory Usage</h3>
+                <div class="chart-container">
+                    <canvas id="gateway-performance-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>🔗 Connection Status</h3>
+                <div class="connection-stats">
+                    <div class="conn-item">
+                        <span class="conn-label">WiFi Strength:</span>
+                        <div class="wifi-bars">
+                            <div class="wifi-bar active"></div>
+                            <div class="wifi-bar active"></div>
+                            <div class="wifi-bar active"></div>
+                            <div class="wifi-bar"></div>
+                        </div>
+                    </div>
+                    <div class="conn-item">
+                        <span class="conn-label">MQTT Latency:</span>
+                        <span class="conn-value" id="mqtt-latency">-- ms</span>
+                    </div>
+                    <div class="conn-item">
+                        <span class="conn-label">Data Throughput:</span>
+                        <span class="conn-value" id="data-throughput">-- KB/s</span>
+                    </div>
+                    <div class="conn-item">
+                        <span class="conn-label">Queue Size:</span>
+                        <span class="conn-value" id="queue-size">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Information -->
+        <div class="card">
+            <h3>ℹ️ System Information</h3>
+            <div class="system-info-grid">
+                <div class="info-column">
+                    <h4>Hardware</h4>
+                    <div class="info-item">
+                        <span>CPU Frequency:</span>
+                        <span id="gw-cpu-freq">240 MHz</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Total RAM:</span>
+                        <span id="gw-ram-total">320 KB</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Used RAM:</span>
+                        <span id="gw-ram-used">150 KB</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Free RAM:</span>
+                        <span id="gw-ram-free">170 KB</span>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <h4>Software</h4>
+                    <div class="info-item">
+                        <span>Firmware Version:</span>
+                        <span>v1.0.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ESP32 Core:</span>
+                        <span>Arduino</span>
+                    </div>
+                    <div class="info-item">
+                        <span>LoRa Library:</span>
+                        <span>RadioLib</span>
+                    </div>
+                    <div class="info-item">
+                        <span>MQTT Client:</span>
+                        <span>PubSubClient</span>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <h4>Services</h4>
+                    <div class="info-item">
+                        <span>n8n Integration:</span>
+                        <span class="status-online">Active</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Web Interface:</span>
+                        <span class="status-online">Running</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Data Storage:</span>
+                        <span>In-Memory</span>
+                    </div>
+                    <div class="info-item">
+                        <span>API Endpoints:</span>
+                        <span>6 Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/gateway.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTech - Transceiver Performance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>🌤️ WeatherTech</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Dashboard</a>
+            <a href="sensors.html" class="nav-link">📊 Sensors</a>
+            <a href="gps.html" class="nav-link">🗺️ GPS</a>
+            <a href="transceiver.html" class="nav-link active">⚡ Transceiver</a>
+            <a href="gateway.html" class="nav-link">🖥️ Gateway</a>
+            <a href="history.html" class="nav-link">📈 History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Performance System Transceiver</h1>
+            <div class="last-update" id="last-update">Loading...</div>
+        </header>
+
+        <!-- Performance Overview -->
+        <div class="performance-overview">
+            <div class="metric-card large">
+                <div class="metric-header">
+                    <h3>🔧 CPU Performance</h3>
+                    <div class="metric-value" id="cpu-value">240 MHz</div>
+                </div>
+                <div class="metric-chart">
+                    <canvas id="cpu-chart"></canvas>
+                </div>
+                <div class="metric-stats">
+                    <span>Usage: <span id="cpu-usage">70%</span></span>
+                    <span>Max: <span id="cpu-max">240 MHz</span></span>
+                </div>
+            </div>
+
+            <div class="metric-card large">
+                <div class="metric-header">
+                    <h3>🧠 Memory Usage</h3>
+                    <div class="metric-value" id="ram-value">125 KB</div>
+                </div>
+                <div class="metric-chart">
+                    <canvas id="ram-chart"></canvas>
+                </div>
+                <div class="metric-stats">
+                    <span>Used: <span id="ram-used">125</span> KB</span>
+                    <span>Free: <span id="ram-free">115</span> KB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Details -->
+        <div class="content-row">
+            <div class="card">
+                <h3>📋 Detail Sistem</h3>
+                <div class="system-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Device ID:</span>
+                        <span class="detail-value">WeatherTech-Transceiver</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Uptime:</span>
+                        <span class="detail-value" id="uptime-value">24 jam 0 menit</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">CPU Frequency:</span>
+                        <span class="detail-value" id="cpu-freq">240 MHz</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">RAM Total:</span>
+                        <span class="detail-value" id="ram-total">240 KB</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">RAM Used:</span>
+                        <span class="detail-value" id="ram-used-detail">125 KB</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">RAM Free:</span>
+                        <span class="detail-value" id="ram-free-detail">115 KB</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">LoRa Status:</span>
+                        <span class="detail-value online">Active</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Last Reset:</span>
+                        <span class="detail-value" id="last-reset">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📡 Status Komunikasi</h3>
+                <div class="communication-status">
+                    <div class="comm-item">
+                        <span class="comm-label">LoRa Connection:</span>
+                        <div class="comm-status">
+                            <span class="status-dot online"></span>
+                            <span>Connected</span>
+                        </div>
+                    </div>
+                    <div class="comm-item">
+                        <span class="comm-label">Signal Strength:</span>
+                        <div class="signal-bar">
+                            <div class="signal-level high"></div>
+                        </div>
+                    </div>
+                    <div class="comm-item">
+                        <span class="comm-label">Last Transmission:</span>
+                        <span class="comm-value" id="last-tx">--</span>
+                    </div>
+                    <div class="comm-item">
+                        <span class="comm-label">Packets Sent:</span>
+                        <span class="comm-value" id="packets-sent">1,245</span>
+                    </div>
+                    <div class="comm-item">
+                        <span class="comm-label">Transmission Rate:</span>
+                        <span class="comm-value">4 detik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance History -->
+        <div class="card">
+            <h3>📈 Performance History (1 Jam Terakhir)</h3>
+            <div class="chart-container">
+                <canvas id="performance-history-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- System Alerts -->
+        <div class="card">
+            <h3>⚠️ System Alerts</h3>
+            <div class="alerts-list" id="transceiver-alerts">
+                <div class="alert-item info">
+                    <span>🟢 System berjalan normal</span>
+                    <span class="alert-time">Just now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/transceiver.js"></script>
+</body>
+</html>

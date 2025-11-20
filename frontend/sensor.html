@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTech - Sensor Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>🌤️ WeatherTech</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Dashboard</a>
+            <a href="sensors.html" class="nav-link active">📊 Sensors</a>
+            <a href="gps.html" class="nav-link">🗺️ GPS</a>
+            <a href="transceiver.html" class="nav-link">⚡ Transceiver</a>
+            <a href="gateway.html" class="nav-link">🖥️ Gateway</a>
+            <a href="history.html" class="nav-link">📈 History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Data Sensor Lingkungan</h1>
+            <div class="last-update" id="last-update">Loading...</div>
+        </header>
+
+        <!-- Sensor Grid -->
+        <div class="sensor-grid">
+            <!-- Cahaya -->
+            <div class="sensor-card large">
+                <div class="sensor-header">
+                    <h3>💡 Intensitas Cahaya</h3>
+                    <div class="sensor-value" id="lux-value">-- lux</div>
+                </div>
+                <div class="sensor-chart">
+                    <canvas id="lux-chart"></canvas>
+                </div>
+                <div class="sensor-status">
+                    <span class="status-badge" id="lux-status">Normal</span>
+                    <span class="update-time" id="lux-time">--</span>
+                </div>
+            </div>
+
+            <!-- Suhu -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>🌡️ Suhu</h3>
+                    <div class="sensor-value" id="temp-value">-- °C</div>
+                </div>
+                <div class="sensor-gauge">
+                    <div class="gauge" id="temp-gauge">
+                        <div class="gauge-fill" id="temp-gauge-fill"></div>
+                    </div>
+                </div>
+                <div class="sensor-range">
+                    <span>Min: <span id="temp-min">--</span>°C</span>
+                    <span>Max: <span id="temp-max">--</span>°C</span>
+                </div>
+            </div>
+
+            <!-- Kelembaban -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>💧 Kelembaban</h3>
+                    <div class="sensor-value" id="hum-value">-- %</div>
+                </div>
+                <div class="sensor-gauge">
+                    <div class="gauge" id="hum-gauge">
+                        <div class="gauge-fill" id="hum-gauge-fill"></div>
+                    </div>
+                </div>
+                <div class="sensor-range">
+                    <span>Min: <span id="hum-min">--</span>%</span>
+                    <span>Max: <span id="hum-max">--</span>%</span>
+                </div>
+            </div>
+
+            <!-- Tekanan -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>🎯 Tekanan Udara</h3>
+                    <div class="sensor-value" id="pres-value">-- hPa</div>
+                </div>
+                <div class="sensor-trend">
+                    <div class="trend-value" id="pres-trend">→</div>
+                    <div class="trend-text" id="pres-trend-text">Stabil</div>
+                </div>
+                <div class="sensor-history">
+                    <span>Trend: 1 jam</span>
+                </div>
+            </div>
+
+            <!-- Kualitas Udara -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>🌬️ Kualitas Udara</h3>
+                    <div class="sensor-value" id="air-value">-- %</div>
+                </div>
+                <div class="sensor-quality">
+                    <div class="quality-bar">
+                        <div class="quality-fill" id="air-quality-fill"></div>
+                    </div>
+                    <div class="quality-labels">
+                        <span>Buruk</span>
+                        <span>Baik</span>
+                    </div>
+                </div>
+                <div class="sensor-status">
+                    <span class="status-badge" id="air-status">Bersih</span>
+                </div>
+            </div>
+
+            <!-- System Info -->
+            <div class="sensor-card info">
+                <div class="sensor-header">
+                    <h3>📋 Informasi Sistem</h3>
+                </div>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span>Waktu RTC:</span>
+                        <span id="rtc-time">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span>EEPROM Count:</span>
+                        <span id="eeprom-count">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Update Terakhir:</span>
+                        <span id="last-update-time">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Status Sensor:</span>
+                        <span class="status-online">Aktif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Chart -->
+        <div class="card">
+            <h3>📈 Trend Real-time (15 Menit Terakhir)</h3>
+            <div class="chart-container">
+                <canvas id="sensor-trend-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sensors.js"></script>
+</body>
+</html>

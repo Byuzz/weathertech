@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTech - GPS Tracking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>🌤️ WeatherTech</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Dashboard</a>
+            <a href="sensors.html" class="nav-link">📊 Sensors</a>
+            <a href="gps.html" class="nav-link active">🗺️ GPS</a>
+            <a href="transceiver.html" class="nav-link">⚡ Transceiver</a>
+            <a href="gateway.html" class="nav-link">🖥️ Gateway</a>
+            <a href="history.html" class="nav-link">📈 History</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Pemantauan Lokasi GPS</h1>
+            <div class="last-update" id="last-update">Loading...</div>
+        </header>
+
+        <div class="gps-content">
+            <!-- Map Section -->
+            <div class="card map-full-card">
+                <div class="map-header">
+                    <h3>📍 Peta Lokasi Real-time</h3>
+                    <div class="map-controls">
+                        <button id="refresh-map" class="btn-primary">🔄 Refresh</button>
+                        <button id="toggle-satellite" class="btn-secondary">🛰️ Satellite</button>
+                    </div>
+                </div>
+                <div id="gps-map"></div>
+                <div class="map-info">
+                    <div class="coordinates">
+                        <div class="coord-item">
+                            <span class="coord-label">Latitude:</span>
+                            <span class="coord-value" id="current-latitude">-8.178842</span>
+                        </div>
+                        <div class="coord-item">
+                            <span class="coord-label">Longitude:</span>
+                            <span class="coord-value" id="current-longitude">113.726170</span>
+                        </div>
+                    </div>
+                    <div class="gps-status">
+                        <span class="status-label">Status GPS:</span>
+                        <span class="status-value online" id="gps-status">Valid</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPS Information -->
+            <div class="gps-sidebar">
+                <div class="card">
+                    <h3>📡 Informasi GPS</h3>
+                    <div class="gps-info-list">
+                        <div class="info-item">
+                            <span>Akurasi:</span>
+                            <span id="gps-accuracy">Tinggi</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Update Terakhir:</span>
+                            <span id="gps-last-update">--</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Provider Map:</span>
+                            <span>OpenStreetMap</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Zoom Level:</span>
+                            <span id="zoom-level">15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Koordinat Detail</h3>
+                    <div class="coordinates-detail">
+                        <div class="coord-detail">
+                            <label>Latitude (DMS):</label>
+                            <code id="lat-dms">8°10'43.8"S</code>
+                        </div>
+                        <div class="coord-detail">
+                            <label>Longitude (DMS):</label>
+                            <code id="lng-dms">113°43'34.2"E</code>
+                        </div>
+                        <div class="coord-detail">
+                            <label>Google Maps:</label>
+                            <a href="#" id="google-maps-link" target="_blank">Buka di Maps</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📊 History Posisi</h3>
+                    <div class="position-history">
+                        <div class="history-item">
+                            <span class="time">14:30:45</span>
+                            <span class="position">-8.178842, 113.726170</span>
+                        </div>
+                        <div class="history-item">
+                            <span class="time">14:25:32</span>
+                            <span class="position">-8.178845, 113.726168</span>
+                        </div>
+                        <div class="history-item">
+                            <span class="time">14:20:18</span>
+                            <span class="position">-8.178840, 113.726172</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/gps.js"></script>
+</body>
+</html>
