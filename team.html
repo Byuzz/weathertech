@@ -32,7 +32,8 @@
         <div class="card team-identity">
             <div class="team-logo-section">
                 <div class="team-logo">
-                    <img src="images\IR-64 IoT.png" alt="IR-64 IoT Team Logo" class="logo-image team-logo-img">
+                    <img src="images\IR-64 IoT.png" alt="IR-64 IoT Team Logo" class="logo-image team-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <div class="logo-fallback" style="display: none;">🛰️</div>
                     <div class="logo-text">IR-64</div>
                 </div>
                 <div class="team-brand">
@@ -193,8 +194,13 @@
                         <div class="member-avatar">B</div>
                         <div class="member-info">
                             <h4>Ahmad Bayu Putra Dewantara</h4>
-                            <p class="member-nim">E32242382</p>
-                            <p class="member-role">Teknik Komputer'24</p>
+                            <p class="member-nim">E32242382 - Teknik Komputer'24</p>
+                            <p class="member-role">Project Lead & Hardware Specialist</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">ESP32</span>
+                                <span class="skill-tag">LoRa</span>
+                                <span class="skill-tag">Hardware</span>
+                            </div>
                         </div>
                     </div>
 
@@ -202,8 +208,13 @@
                         <div class="member-avatar">RR</div>
                         <div class="member-info">
                             <h4>Rahmat Rendy Prayogo</h4>
-                            <p class="member-nim">E41241524</p>
-                            <p class="member-role">Teknik Informatika'24</p>
+                            <p class="member-nim">E41241524 - Teknik Informatika'24</p>
+                            <p class="member-role">Software Developer & IoT Engineer</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">MQTT</span>
+                                <span class="skill-tag">Firmware</span>
+                            </div>
                         </div>
                     </div>
 
@@ -211,8 +222,13 @@
                         <div class="member-avatar">AA</div>
                         <div class="member-info">
                             <h4>Abdillah Aziz Putra Susan</h4>
-                            <p class="member-nim">E41241208</p>
-                            <p class="member-role">Teknik Informatika'24</p>
+                            <p class="member-nim">E41241208 - Teknik Informatika'24</p>
+                            <p class="member-role">Web Developer & System Integrator</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">n8n</span>
+                                <span class="skill-tag">API</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,7 +239,8 @@
         <div class="card institution-card">
             <div class="institution-info">
                 <div class="institution-logo">
-                    <img src="images\Logo_Polije.png" alt="Politeknik Negeri Jember Logo" class="logo-image institution-logo-img">
+                    <img src="images\Logo_Polije.png" alt="Politeknik Negeri Jember Logo" class="logo-image institution-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <div class="logo-fallback" style="display: none;">🎓</div>
                 </div>
                 <div>
                     <h3>Politeknik Negeri Jember</h3>
@@ -235,18 +252,20 @@
     </div>
 
     <style>
-        /* Team Identity Styles */
+        /* Team Identity Styles - FIXED FOR MOBILE */
         .team-identity {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             margin-bottom: 2rem;
+            padding: 1.5rem !important;
         }
 
         .team-logo-section {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .team-logo {
@@ -254,116 +273,292 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .logo-image {
             border-radius: 15px;
             object-fit: contain;
+            max-width: 100%;
+            height: auto;
         }
 
         .team-logo-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
+            padding: 12px;
             border: 3px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .logo-fallback {
+            font-size: 3rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .team-logo .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            letter-spacing: 2px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .team-brand {
+            flex: 1;
+            min-width: 0; /* Prevent overflow */
         }
 
         .team-brand h2 {
             color: white;
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            line-height: 1.2;
+            word-wrap: break-word;
         }
 
         .team-tagline {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             opacity: 0.9;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .team-motto {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
 
         .motto-text {
             font-style: italic;
             background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 8px;
             border-left: 3px solid #4CAF50;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            display: inline-block;
+            word-break: break-word;
         }
 
         .team-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 1.5rem;
         }
 
         .stat {
             text-align: center;
+            padding: 0.5rem;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 0.3rem;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
+            line-height: 1.2;
         }
 
-        /* Member Skills */
-        .member-skills {
+        /* Project Brief Mobile Fix */
+        .project-brief {
+            padding: 1.2rem !important;
+        }
+
+        .brief-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .brief-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tagline {
+            font-size: 0.85rem;
+        }
+
+        .brief-sdgs {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
+            gap: 0.4rem;
             flex-wrap: wrap;
+            margin-top: 0.8rem;
         }
 
-        .skill-tag {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
+        .sdg-pill {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Institution Card Improvement */
-        .institution-card .institution-info {
+        /* Content Row Mobile Fix */
+        .content-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Card General Fix */
+        .card {
+            padding: 1.2rem !important;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Grid Mobile Fix */
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 0.6rem;
+            border-radius: 8px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .feature-content h5 {
+            margin: 0 0 0.2rem 0;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .feature-content p {
+            margin: 0;
+            color: #5a6c7d;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        /* Architecture Mobile Fix */
+        .architecture-simple {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .arch-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .arch-number {
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            text-align: left;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
         }
 
-        .institution-logo-img {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+        .arch-content h5 {
+            margin: 0 0 0.3rem 0;
+            color: #2c3e50;
+            font-size: 0.95rem;
         }
 
-        /* Enhanced member avatars */
+        .arch-content p {
+            margin: 0 0 0.3rem 0;
+            color: #5a6c7d;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .arch-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* Impact List Mobile Fix */
+        .impact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .impact-item {
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Team Grid Mobile Fix */
+        .team-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
         .member-avatar {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
@@ -371,74 +566,282 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1rem;
             flex-shrink: 0;
-            border: 3px solid #e3f2fd;
+            border: 2px solid #e3f2fd;
         }
 
-        /* Fallback styling if images don't load */
-        .team-logo::before {
-            content: "🛰️";
-            font-size: 4rem;
-            display: none; /* Hidden if image loads */
+        .member-info {
+            flex: 1;
+            min-width: 0;
         }
 
-        .institution-logo::before {
-            content: "🎓";
-            font-size: 3rem;
-            display: none; /* Hidden if image loads */
+        .member-info h4 {
+            margin: 0 0 0.2rem 0;
+            color: #2c3e50;
+            font-size: 1rem;
+            line-height: 1.2;
         }
 
-        /* Responsive Design for Team Identity */
-        @media (max-width: 768px) {
+        .member-nim {
+            color: #666;
+            font-size: 0.8rem;
+            margin: 0.1rem 0;
+            line-height: 1.2;
+        }
+
+        .member-role {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.8rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* Member Skills Mobile Fix */
+        .member-skills {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .skill-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.15rem 0.4rem;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 500;
+        }
+
+        /* Institution Card Mobile Fix */
+        .institution-card {
+            padding: 1.2rem !important;
+        }
+
+        .institution-card .institution-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .institution-logo-img {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .institution-card h3 {
+            color: white;
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .institution-card p {
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+        }
+
+        .institution-year {
+            margin-top: 0.3rem;
+            opacity: 0.9;
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+
+        /* Project Overview Mobile Fix */
+        .project-overview {
+            line-height: 1.5;
+        }
+
+        .project-section {
+            margin-bottom: 1rem;
+        }
+
+        .project-section h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .project-section p {
+            margin-bottom: 0.8rem;
+            color: #5a6c7d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .team-identity {
+                padding: 2rem !important;
+            }
+
             .team-logo-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
+                gap: 2rem;
+            }
+
+            .team-logo-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .logo-fallback {
+                width: 120px;
+                height: 120px;
+                font-size: 4rem;
             }
 
             .team-brand h2 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
 
-            .team-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .team-tagline {
+                font-size: 1.1rem;
+            }
+
+            .motto-text {
+                font-size: 1rem;
             }
 
             .stat-number {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .institution-card .institution-info {
-                flex-direction: column;
-                text-align: center;
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .content-row {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .content-row > .card {
+                flex: 1;
+            }
+
+            .card {
+                padding: 1.5rem !important;
+            }
+
+            .card h3 {
+                font-size: 1.3rem;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 gap: 1rem;
             }
 
-            .team-logo-img {
-                width: 100px;
-                height: 100px;
+            .feature-item {
+                padding: 1rem;
             }
 
-            .team-logo .logo-text {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-brand h2 {
+            .feature-icon {
                 font-size: 1.5rem;
+                padding: 0.8rem;
             }
 
-            .team-logo-img {
+            .feature-content h5 {
+                font-size: 1rem;
+            }
+
+            .feature-content p {
+                font-size: 0.9rem;
+            }
+
+            .architecture-simple {
+                gap: 1rem;
+            }
+
+            .arch-step {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+
+            .arch-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+
+            .arch-content h5 {
+                font-size: 1.1rem;
+            }
+
+            .arch-content p {
+                font-size: 0.95rem;
+            }
+
+            .impact-list {
+                gap: 1rem;
+            }
+
+            .impact-item {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .team-grid {
+                gap: 1.2rem;
+            }
+
+            .team-member {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+
+            .member-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3rem;
+            }
+
+            .member-info h4 {
+                font-size: 1.1rem;
+            }
+
+            .member-nim {
+                font-size: 0.9rem;
+            }
+
+            .member-role {
+                font-size: 0.9rem;
+            }
+
+            .skill-tag {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .institution-logo-img {
                 width: 80px;
                 height: 80px;
             }
 
-            .institution-logo-img {
-                width: 60px;
-                height: 60px;
+            .institution-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .team-brand h2 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
