@@ -3,189 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherTech - Our Teams</title>
+    <title>WeatherTech - Team & Project</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Team Page Specific Styles */
-        .teams-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .team-section {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border: 1px solid #e1e8ed;
-        }
-
-        .team-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #f1f3f4;
-        }
-
-        .team-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin: 0;
-        }
-
-        .team-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-            font-weight: bold;
-        }
-
-        .members-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .member-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .member-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .member-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .member-info {
-            flex: 1;
-        }
-
-        .member-name {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 0.2rem;
-            font-size: 1.1rem;
-        }
-
-        .member-details {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-
-        .member-nim {
-            font-family: monospace;
-            background: #e9ecef;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-
-        /* Project Info */
-        .project-info {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-        }
-
-        .project-info h2 {
-            margin-bottom: 1rem;
-            font-size: 2.2rem;
-        }
-
-        .project-info p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .teams-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .team-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .team-title {
-                font-size: 1.5rem;
-            }
-            
-            .member-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-section {
-                padding: 1.5rem;
-            }
-            
-            .team-title {
-                font-size: 1.3rem;
-            }
-            
-            .project-info h2 {
-                font-size: 1.8rem;
-            }
-        }
-
-        .team-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        background: transparent; /* Hapus background gradient */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden; /* Untuk crop gambar */
-        border: 2px solid #f1f3f4;
-        }
-
-        .team-logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Gambar tidak terdistorsi */
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -194,7 +13,7 @@
         </div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">🏠 Overview</a>
-            <a href="sensors.html" class="nav-link">📊 Sensors</a>
+            <a href="sensors.html" class="nav-link">📊 Sensor Data</a>
             <a href="gps.html" class="nav-link">🗺️ GPS</a>
             <a href="transceiver.html" class="nav-link">⚡ Transceiver</a>
             <a href="gateway.html" class="nav-link">🖥️ Gateway</a>
@@ -204,96 +23,444 @@
     </nav>
 
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-info">
-            <h2>WeatherTech Monitoring System</h2>
-            <p>Project IoT Monitoring Environment - Teknologi Informasi</p>
-        </div>
+        <header class="page-header">
+            <h1>Team & Project Overview</h1>
+            <div class="last-update">Jaringan Sensor Cerdas Mandiri Energi</div>
+        </header>
 
-        <!-- Teams Container -->
-        <div class="teams-container">
-            <!-- Team 1 -->
-            <div class="team-section">
-                <div class="team-header">
-                    <h3 class="team-title">IR-64 IoT</h3>
-                    <div class="team-logo">
-                        <img src="images\IR-64 IoT.png" alt="IR-64 IoT Logo">
+        <!-- About Project Section -->
+        <div class="card">
+            <h2>🌱 About This Project</h2>
+            <div class="project-overview">
+                <div class="project-intro">
+                    <h3>Jaringan Sensor Cerdas Mandiri Energi untuk Pemantauan Iklim Mikro dan Kualitas Udara Perkotaan</h3>
+                    <p class="project-tagline">Solusi IoT inovatif untuk mendukung Sustainable Development Goals (SDGs) melalui monitoring lingkungan real-time</p>
+                </div>
+
+                <!-- Background Section -->
+                <div class="project-section">
+                    <h4>📋 Latar Belakang</h4>
+                    <p>Pemanasan global menjadi isu krisis utama yang mendesak untuk ditangani. Laporan IPCC menunjukkan bahwa suhu bumi telah meningkat lebih dari 1,1°C sejak era pra-industri, dan diprediksi terus naik jika tidak ada tindakan mitigasi yang nyata.</p>
+                    <p>Dampak ini semakin dirasakan di wilayah padat penduduk, sehingga mendorong urgensi untuk merancang solusi melalui sistem pemantauan iklim mikro yang mandiri energi.</p>
+                </div>
+
+                <!-- SDGs Contribution -->
+                <div class="project-section">
+                    <h4>🎯 Kontribusi terhadap SDGs</h4>
+                    <div class="sdgs-grid">
+                        <div class="sdg-item">
+                            <div class="sdg-icon">🏙️</div>
+                            <div class="sdg-info">
+                                <h5>SDG 11</h5>
+                                <p>Kota dan Komunitas Berkelanjutan</p>
+                            </div>
+                        </div>
+                        <div class="sdg-item">
+                            <div class="sdg-icon">⚡</div>
+                            <div class="sdg-info">
+                                <h5>SDG 7</h5>
+                                <p>Energi Bersih dan Terjangkau</p>
+                            </div>
+                        </div>
+                        <div class="sdg-item">
+                            <div class="sdg-icon">🏭</div>
+                            <div class="sdg-info">
+                                <h5>SDG 9</h5>
+                                <p>Industri, Inovasi, dan Infrastruktur</p>
+                            </div>
+                        </div>
+                        <div class="sdg-item">
+                            <div class="sdg-icon">❤️</div>
+                            <div class="sdg-info">
+                                <h5>SDG 3</h5>
+                                <p>Kehidupan Sehat dan Sejahtera</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="members-list">
-                    <!-- Anggota 1 -->
-                    <div class="member-item">
-                        <div class="member-avatar">B</div>
-                        <div class="member-info">
-                            <div class="member-name">Ahmad Bayu Putra Dewantara</div>
-                            <div class="member-details">
-                                <span class="member-nim">E32242382</span> | 
-                                Teknik Komputer | 
-                                Angkatan 2024
+
+                <!-- System Architecture -->
+                <div class="project-section">
+                    <h4>🔧 Arsitektur Sistem</h4>
+                    <div class="architecture-simple">
+                        <div class="arch-step">
+                            <div class="arch-number">1</div>
+                            <div class="arch-content">
+                                <h5>Sensor Nodes</h5>
+                                <p>ESP32 dengan sensor BME280, BH1750, MQ-135, dan GPS</p>
+                                <span class="arch-badge">Mandiri Energi - Panel Surya</span>
+                            </div>
+                        </div>
+                        <div class="arch-step">
+                            <div class="arch-number">2</div>
+                            <div class="arch-content">
+                                <h5>LoRa Communication</h5>
+                                <p>Transmisi data nirkabel jarak jauh ke gateway</p>
+                                <span class="arch-badge">433MHz - Low Power</span>
+                            </div>
+                        </div>
+                        <div class="arch-step">
+                            <div class="arch-number">3</div>
+                            <div class="arch-content">
+                                <h5>Gateway & Cloud</h5>
+                                <p>HiveMQ Cloud Broker dengan MQTT protocol</p>
+                                <span class="arch-badge">TLS Secured</span>
+                            </div>
+                        </div>
+                        <div class="arch-step">
+                            <div class="arch-number">4</div>
+                            <div class="arch-content">
+                                <h5>n8n Automation</h5>
+                                <p>Workflow automation dan integrasi Gemini AI</p>
+                                <span class="arch-badge">Real-time Processing</span>
+                            </div>
+                        </div>
+                        <div class="arch-step">
+                            <div class="arch-number">5</div>
+                            <div class="arch-content">
+                                <h5>User Interface</h5>
+                                <p>Web Dashboard & Telegram Bot dengan AI insights</p>
+                                <span class="arch-badge">Multi-platform Access</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Anggota 2 -->
-                    <div class="member-item">
-                        <div class="member-avatar">R</div>
-                        <div class="member-info">
-                            <div class="member-name">Rahmat Rendy Prayogo</div>
-                            <div class="member-details">
-                                <span class="member-nim">E41241524</span> | 
-                                Teknik Infomatika | 
-                                Angkatan 2024
+                <!-- Features -->
+                <div class="project-section">
+                    <h4>✨ Fitur Utama</h4>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🌞</div>
+                            <div class="feature-content">
+                                <h5>Mandiri Energi</h5>
+                                <p>Ditenagai panel surya dengan sistem backup baterai</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📡</div>
+                            <div class="feature-content">
+                                <h5>Jangkauan Luas</h5>
+                                <p>Komunikasi LoRa hingga beberapa kilometer</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-content">
+                                <h5>AI Integration</h5>
+                                <p>Gemini AI untuk analisis data dan insights</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-content">
+                                <h5>Real-time Monitoring</h5>
+                                <p>Dashboard web dan notifikasi Telegram</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Anggota 3 -->
-                    <div class="member-item">
-                        <div class="member-avatar">A</div>
-                        <div class="member-info">
-                            <div class="member-name">Abdillah Aziz Putra Susan</div>
-                            <div class="member-details">
-                                <span class="member-nim">E41241208</span> | 
-                                Teknik Infomatika | 
-                                Angkatan 2024
-                            </div>
+                <!-- Expected Impact -->
+                <div class="project-section">
+                    <h4>📈 Manfaat yang Diharapkan</h4>
+                    <div class="impact-list">
+                        <div class="impact-item">
+                            <strong>Bagi Masyarakat:</strong> Akses informasi lingkungan real-time melalui Bot Telegram dan Dashboard Web
+                        </div>
+                        <div class="impact-item">
+                            <strong>Bagi Pemangku Kebijakan:</strong> Data historis terstruktur untuk pengambilan keputusan tata kota
+                        </div>
+                        <div class="impact-item">
+                            <strong>Bagi Industri/Akademisi:</strong> Model infrastruktur IoT inovatif yang dapat direplikasi untuk smart city
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Project Description -->
+        <!-- Team Members Section -->
         <div class="card">
-            <h3>📋 About This Project</h3>
-            <p>
-                <strong>WeatherTech Monitoring System</strong> adalah project IoT yang dikembangkan 
-                untuk memantau kondisi lingkungan secara real-time menggunakan sensor-sensor cerdas 
-                dan teknologi web modern.
-            </p>
-            <p>
-                Project ini merupakan implementasi nyata dari mata kuliah <strong>Sistem Tertanam</strong> 
-                dan <strong>Pemrograman Web</strong> di Program Studi Teknologi Informasi.
-            </p>
+            <h2>👥 Tim Pengembang</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">AB</div>
+                    <div class="member-info">
+                        <h4>Ahmad Bayu Putra Dewantara</h4>
+                        <p class="member-nim">E32242382</p>
+                        <p class="member-role">Project Lead & Hardware Specialist</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">RR</div>
+                    <div class="member-info">
+                        <h4>Rahmat Rendy Prayogo</h4>
+                        <p class="member-nim">E41241524</p>
+                        <p class="member-role">Software Developer & IoT Engineer</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">AA</div>
+                    <div class="member-info">
+                        <h4>Abdillah Aziz Putra Susan</h4>
+                        <p class="member-nim">E41241208</p>
+                        <p class="member-role">Web Developer & System Integrator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Institution -->
+        <div class="card institution-card">
+            <div class="institution-info">
+                <h3>🎓 Politeknik Negeri Jember</h3>
+                <p>Jurusan Teknologi Informasi</p>
+                <p class="institution-year">IoT Tech Competition BTF 2025</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Simple animation for team sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const teamSections = document.querySelectorAll('.team-section');
+    <style>
+        /* Project Overview Styles */
+        .project-overview {
+            line-height: 1.6;
+        }
+
+        .project-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e1e8ed;
+        }
+
+        .project-tagline {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .project-section h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* SDGs Grid */
+        .sdgs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .sdg-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sdg-icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            color: white;
+        }
+
+        /* Architecture */
+        .architecture-simple {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .arch-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .arch-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .arch-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 0.8rem;
+            border-radius: 10px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Impact List */
+        .impact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .impact-item {
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .member-nim {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.2rem 0;
+        }
+
+        .member-role {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Institution Card */
+        .institution-card {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .institution-card h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution-year {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sdgs-grid {
+                grid-template-columns: 1fr;
+            }
             
-            teamSections.forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    section.style.transition = 'all 0.6s ease';
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }, index * 300);
-            });
-        });
-    </script>
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .arch-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script src="js/team.js"></script>
 </body>
 </html>
